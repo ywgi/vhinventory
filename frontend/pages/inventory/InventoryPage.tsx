@@ -1,4 +1,3 @@
-import React from 'react';
 import './InventoryPage.css';
 //import components
 
