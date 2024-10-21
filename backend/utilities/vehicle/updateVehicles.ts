@@ -1,5 +1,5 @@
 import Vehicle from '../../models/vehicleModel';
-import extractVehicles from '../utilities/vehicle/extractVehicles';
+import extractVehicles from './extractVehicles';
 
 const updateVehicles = async () => {
     const vehiclesArray = await extractVehicles();

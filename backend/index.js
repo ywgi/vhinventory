@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // import * as dotenv from 'dotenv';
 // dotenv.config();
 // import mongoose from 'mongoose';
@@ -11,11 +13,10 @@
 // //util imports
 // // import { updateVehicles } from './utils/updateVehicles.js';
 // import updateVehicles from './utilities/vehicle/updateVehicles';
-import parseCsv from './utilities/vehicle/extractVehicles'
+var extractVehicles_1 = require("./utilities/vehicle/extractVehicles");
 //import { deleteVehicles } from './utils/deleteVehicles.js';
 //route imports
 //import vehicleRoutes from './routes/vehicleRoutes';
-
 //database initialization and connection
 // const connectionString = process.env.MONGO_URI;
 // if (connectionString != undefined) {
@@ -26,20 +27,15 @@ import parseCsv from './utilities/vehicle/extractVehicles'
 //   })
 //   .catch(err => console.log(err));
 // }
-
 //server initialization
 // const app = express();
 // const port = 5000;
-
 // app.use(cors({
 //     origin: 'http://localhost:5173'
 // }));
-
 // app.listen(port, () => {
 //     console.log(`node server running on ${port}`);
 // })
-
 // app.use(express.json());
 // app.use('/api/vehicles', vehicleRoutes);
-
-parseCsv();
+(0, extractVehicles_1.default)();
