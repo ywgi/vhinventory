@@ -1,7 +1,13 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const messageSchema = new Schema({
-    username: {
+interface message {
+    user: string;
+    message: string;
+    timestamp: string;
+}
+
+const messageSchema = new Schema<message>({
+    user: {
         type: String,
         required: true,
     },
@@ -10,11 +16,12 @@ const messageSchema = new Schema({
         required: true,
     },
     timestamp: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        required: true,
+        default: `${Date.now}`,
     }
 });
- 
-const Message = model("Message", messageSchema);
 
-export default Message;
+const messageModel = model<message>('Message', messageSchema);
+
+export default messageModel;

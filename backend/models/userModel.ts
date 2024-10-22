@@ -1,6 +1,9 @@
 import { Schema, model } from 'mongoose';
+import User from '../types/userType';
 
-const userSchema = new Schema({
+interface IUser extends User {}
+
+const userSchema = new Schema<IUser>({
     firstName: {
         type: String,
         required: true,
@@ -14,11 +17,6 @@ const userSchema = new Schema({
         required: true,
         match: [/^[a-zA-Z0-9._%+-]+@verhoefautomotive\.com$/, 'Email must be from verhoefautomotive.com domain'],
     },
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     password: {
         type: String,
         required: true,
@@ -28,6 +26,7 @@ const userSchema = new Schema({
     }
 });
 
-const User = model('User', userSchema);
+const userModel = model<IUser>('User', userSchema); 
 
-export default User;
+export { userSchema } ;
+export default userModel;

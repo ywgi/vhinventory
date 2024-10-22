@@ -1,9 +1,7 @@
 import Papa = require('papaparse');
 import axios = require('axios');
-//
-import Vehicle from '../../types/VehicleType';
-import UnfilteredVehicle from '../../types/UnfilteredVehicleType'
-
+import UnfilteredVehicle from '../types/unfilteredVehicleType';
+import Vehicle from "../types/vehicleType";
 
 const url = "https://vendordownloads.homenetinc.com/VerHoefChevroletBuick/VerHoefChevroletBuick.csv";
 
@@ -34,7 +32,7 @@ const vehicleConverter = (unfilteredVehicles : UnfilteredVehicle[]) : Vehicle[] 
             daysOnLot: uv.days_on_lot,
             msrp: uv.msrp,
             images: Object.keys(uv)
-                .filter(key => /^image\[\d+\]\.url$/.test(key))
+                .filter(key => key.startsWith('image') && key.endsWith('.url'))
                 .map(key => uv[key])
         } as Vehicle;
     })
@@ -51,11 +49,5 @@ const parseCsv = async () : Promise<Vehicle[]> => {
     return vehicleConverter(results.data);
 };
 
-
-parseCsv().then(parsedVehicleData => {
-    console.log(parsedVehicleData[0]);
-}).catch(err => {
-    console.error(err);
-});
-
 export default parseCsv;
+

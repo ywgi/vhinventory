@@ -1,4 +1,4 @@
-import Vehicle from '../../models/vehicleModel';
+import Vehicle from '../models/vehicleModel';
 import extractVehicles from './extractVehicles';
 
 const updateVehicles = async () => {

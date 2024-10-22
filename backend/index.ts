@@ -11,7 +11,7 @@
 // //util imports
 // // import { updateVehicles } from './utils/updateVehicles.js';
 // import updateVehicles from './utilities/vehicle/updateVehicles';
-import parseCsv from './utilities/vehicle/extractVehicles'
+import parseCsv from './utilities/extractVehicles';
 //import { deleteVehicles } from './utils/deleteVehicles.js';
 //route imports
 //import vehicleRoutes from './routes/vehicleRoutes';
@@ -42,4 +42,6 @@ import parseCsv from './utilities/vehicle/extractVehicles'
 // app.use(express.json());
 // app.use('/api/vehicles', vehicleRoutes);
 
-parseCsv();
+parseCsv().then(x => 
+    console.log(x)
+);

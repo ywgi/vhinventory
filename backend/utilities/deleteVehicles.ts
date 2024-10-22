@@ -1,4 +1,4 @@
-import Vehicle from '../../models/vehicleModel';
+import Vehicle from '../models/vehicleModel';
 
 const deleteCollection = async () => {
   await Vehicle.collection.drop();
