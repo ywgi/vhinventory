@@ -1,12 +1,12 @@
 import express from 'express';
-import { getVehicles, patchVehicle, postTest} from '../controllers/vehicleController'
+import { getVehicles, updateVehicle, sellVehicle} from '../controllers/vehicleController'
 
 const router = express.Router();
 
 router.get("/", getVehicles);
 
-router.put('/:id2', postTest);
+router.patch("/:id", updateVehicle);
 
-router.patch("/:id", patchVehicle);
+router.patch('/sell/:id', sellVehicle);
 
 export default router;

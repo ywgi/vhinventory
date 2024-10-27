@@ -6,6 +6,7 @@ interface IVehicle extends Vehicle {
     lof: Boolean;
     detail: Boolean;
     ucc: Boolean;
+    isSold: Boolean;
 }
 
 const vehicleSchema = new Schema<IVehicle>({
@@ -29,7 +30,8 @@ const vehicleSchema = new Schema<IVehicle>({
     notes: { type: [String], required: true, default: []},
     lof: { type: Boolean, default: false },
     detail: { type: Boolean, default: false },
-    ucc: { type: Boolean, default: false }
+    ucc: { type: Boolean, default: false },
+    isSold: { type: Boolean, default: false }
 })
 
 const vehicleModel = model<IVehicle>('Vehicle', vehicleSchema); 
