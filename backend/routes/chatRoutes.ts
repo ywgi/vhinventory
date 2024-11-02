@@ -1,12 +1,15 @@
 import express from 'express';
-import { getVehicles, updateVehicle, sellVehicle} from '../controllers/vehicleController'
+import { getGroupChat, sendMessage, editMessage, deleteMessage } from '../controllers/chatController'
 
 const router = express.Router();
 
-router.get("/", getVehicles);
+router.get("/", getGroupChat);
 
-router.patch("/:id", updateVehicle);
+router.put("/send", sendMessage)
 
-router.patch('/sell/:id', sellVehicle);
+router.put("/:id", editMessage);
+
+router.delete('/sell/:id', deleteMessage);
+
 
 export default router;

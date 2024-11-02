@@ -1,12 +1,10 @@
 import express from 'express';
-import { getUserProfile, updateVehicle, sellVehicle} from '../controllers/userController'
+import { getUserProfile } from '../controllers/userController'
 
 const router = express.Router();
 
 router.get("/profile", getUserProfile);
 
-router.patch("/:id", updateVehicle);
-
-router.patch('/sell/:id', sellVehicle);
+router.patch("/profile/edit")
 
 export default router;

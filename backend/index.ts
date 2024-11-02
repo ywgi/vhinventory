@@ -8,6 +8,9 @@ import cors from 'cors';
 //util imports
 import updateVehicles from './utilities/updateVehicles';
 //route imports
+import bugRoutes from './routes/bugRoutes'
+import chatRoutes from './routes/chatRoutes';
+import userRoutes from './routes/userRoutes'
 import vehicleRoutes from './routes/vehicleRoutes';
 
 //database initialization and connection
@@ -38,4 +41,8 @@ app.listen(port, () => {
 })
 
 app.use(express.json());
-app.use('/api/vehicles', vehicleRoutes);
+app.use('/bugs', bugRoutes);
+app.use('/chat', chatRoutes)
+app.use('/vehicles', vehicleRoutes);
+app.use('/user', userRoutes);
+

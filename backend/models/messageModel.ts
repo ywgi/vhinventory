@@ -1,14 +1,16 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
 interface message {
-    user: string;
+    user: Types.ObjectId;
     message: string;
     timestamp: string;
+    isDeleted: boolean;
 }
 
 const messageSchema = new Schema<message>({
     user: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     message: {
@@ -18,7 +20,12 @@ const messageSchema = new Schema<message>({
     timestamp: {
         type: String,
         required: true,
-        default: `${Date.now}`,
+        default: () => new Date().toISOString(),
+    },
+    isDeleted: {
+        type: Boolean,
+        required: true,
+        default: false,
     }
 });
 
